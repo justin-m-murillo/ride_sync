@@ -25,7 +25,7 @@ const NavigateCard = () => {
           </TouchableOpacity>
         </View>
         <View style={tw`flex-2`}>
-          <Text style={tw`text-center text-xl text-black`}>Good morning, Justin</Text>
+          <Text style={tw`text-center text-base sm:text-xl text-black`}>Good morning, Justin</Text>
         </View>
         <View style={tw`flex-1`} />{/* Space filler */}
       </View>

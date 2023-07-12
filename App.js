@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import MapScreen from './src/screens/MapScreen';
+import EatScreen from './src/screens/EatScreen';
 
 function App() {
   const Stack = createNativeStackNavigator();
@@ -34,6 +35,10 @@ function App() {
                 <Stack.Screen 
                   name='MapScreen'
                   children={(props) => <MapScreen {...props} />}
+                />
+                <Stack.Screen 
+                  name='EatScreen'
+                  children={(props) => <EatScreen {...props} />}
                 />
               </Stack.Navigator>
             </KeyboardAvoidingView>

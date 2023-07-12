@@ -45,7 +45,7 @@ const RideOptionsCard = () => {
           </TouchableOpacity>
         </View>
         <View style={tw`flex-2`}>
-          <Text style={tw`text-center text-xl text-black`}>
+          <Text style={tw`text-center text-base sm:text-xl text-black`}>
             Select a Ride - {tti?.distance?.text}
           </Text>
         </View>
@@ -57,7 +57,7 @@ const RideOptionsCard = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item: { id, title, multiplier, image}, item }) => (
             <TouchableOpacity 
-              style={tw`flex-row justify-between items-center px-10 ${id === selected?.id ? 'bg-gray-200' : null}`}
+              style={tw`flex-row justify-between items-center px-4 sm:px-10 ${id === selected?.id ? 'bg-gray-200' : null}`}
               onPress={() => setSelected(item)}
             >
               <View style={tw`flex-1`}>
