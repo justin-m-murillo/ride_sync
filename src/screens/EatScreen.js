@@ -20,4 +20,4 @@ const EatScreen = () => {
   )
 }
 
-export default EatScreen
+export default EatScreen;
