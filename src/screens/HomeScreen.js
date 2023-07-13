@@ -1,5 +1,5 @@
-import { View, Image, useWindowDimensions } from 'react-native'
-import React from 'react';
+import { View, Image, useWindowDimensions, TextInputProps } from 'react-native'
+import React, { useRef } from 'react';
 import tw from 'twrnc';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -11,6 +11,11 @@ import NavFavorites from '../components/NavFavorites';
 const HomeScreen = () => {
   const { width, height } = useWindowDimensions();
   const dispatch = useDispatch();
+  const inputRef = useRef();
+  const handleFavoritesSubmit = (input) => {
+    inputRef.current?.setAddressText(input);
+    inputRef.current?.focus();
+  }
 
   return (
     <View style={tw`bg-white h-full`}>
@@ -27,6 +32,7 @@ const HomeScreen = () => {
         />
         
         <GooglePlacesAutocomplete
+          ref={inputRef}
           styles={{
             container: {
               flex: 0,
@@ -57,7 +63,7 @@ const HomeScreen = () => {
         />
 
         <NavOptions />
-        <NavFavorites />
+        <NavFavorites handleFavoritesSubmit={handleFavoritesSubmit} />
       </View>
     </View>
   )

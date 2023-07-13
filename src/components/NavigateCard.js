@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react'
 import tw from 'twrnc'
 import { ChevronLeftIcon } from 'react-native-heroicons/solid'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
@@ -15,6 +15,11 @@ import NavFavorites from './NavFavorites';
 const NavigateCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const inputRef = useRef(null);
+  const handleFavoritesSubmit = (input) => {
+    inputRef.current?.setAddressText(input);
+    inputRef.current?.focus();
+  }
 
   return (
     <View style={tw`bg-white flex-1`}>
@@ -32,6 +37,7 @@ const NavigateCard = () => {
       <View style={tw`border-t border-gray-200 flex-shrink`}>
         <View>
           <GooglePlacesAutocomplete 
+            ref={inputRef}
             placeholder='Where to?'
             styles={toInputBoxStyles}
             fetchDetails={true}
@@ -52,7 +58,7 @@ const NavigateCard = () => {
             debounce={400}
           />
         </View>
-        <NavFavorites />
+        <NavFavorites handleFavoritesSubmit={handleFavoritesSubmit} />
       </View>
 
       <View 

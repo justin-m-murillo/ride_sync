@@ -19,14 +19,17 @@ const data = [
   }
 ]
 
-const NavFavorites = () => {
+const NavFavorites = ({ handleFavoritesSubmit }) => {
   return (
     <FlatList 
       data={data}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={() => <View style={[tw`bg-gray-300`, { height: 0.5 }]} />}
       renderItem={({item : {location, destination, icon}}) => (
-        <TouchableOpacity style={tw`flex-row items-center p-5`}>
+        <TouchableOpacity
+          onPress={() => handleFavoritesSubmit(destination)}
+          style={tw`flex-row items-center p-5`}
+        >
           <View style={tw`bg-gray-300 p-2 items-center rounded-full`}>
             {icon}
           </View>
